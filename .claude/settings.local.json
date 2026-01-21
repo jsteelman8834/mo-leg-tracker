@@ -20,7 +20,9 @@
       "Bash(npm run sync:*)",
       "Bash(npx ts-node:*)",
       "WebSearch",
-      "WebFetch(domain:documents.house.mo.gov)"
+      "WebFetch(domain:documents.house.mo.gov)",
+      "Bash(git reset:*)",
+      "Bash(git checkout:*)"
     ]
   }
 }
