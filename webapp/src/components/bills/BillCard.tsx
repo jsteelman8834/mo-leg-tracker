@@ -3,19 +3,10 @@
 import Link from 'next/link';
 import { cn, formatDate, getPartyColor, truncate } from '@/lib/utils';
 import { formatCurrency, formatPercentage, getFiscalImpactColor } from '@/lib/fiscal-utils';
-import legislativeData from '@/data/legislative-data';
-import type { BillCard as BillCardType, Topic } from '@/types';
+import { getTopicBadges } from '@/lib/topics';
+import type { BillCard as BillCardType } from '@/types';
 import { STATUS_LABELS } from '@/types';
 import { Calendar, User, Clock, ChevronRight, FileText, DollarSign, Building2, MapPin, MessageSquare, Brain } from 'lucide-react';
-
-// Helper to get topic info for badges
-function getTopicBadges(topicIds: string[] | undefined, maxBadges: number = 2): Topic[] {
-  if (!topicIds || topicIds.length === 0) return [];
-  return topicIds
-    .slice(0, maxBadges)
-    .map((id) => legislativeData.getTopicById(id))
-    .filter((t): t is Topic => t !== null);
-}
 
 interface BillCardProps {
   billCard: BillCardType;
